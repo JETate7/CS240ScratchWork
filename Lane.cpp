@@ -70,16 +70,41 @@ VehicleBase* Lane::greenMovement(VehicleBase* newSpot){
 
 	VehicleBase* exitingVehicle = lane.at(size - 1);
 	vector<VehicleBase*> temp(size);
-	
+	VehicleBase* current;
+		
 	for (int i = 0; i < size - 1; i++){
-                temp.at(i+1) = lane.at(i);
+		if (lane.at(i) != nullptr){
+			current = lane.at(i);
+			cout << "Moving vehicle: " << current->getVehicleID() << endl;
+			temp.at(i+1) = &(*current);
+			cout << "Moved vehicle: " << temp.at(i+1)->getVehicleID() << endl;
+		}
+                else {
+			temp.at(i+1) = nullptr;
+		}
         }
+
+	cout << "new spot: " << endl;
+	if (newSpot == nullptr){
+		cout << "NULL" << endl;
+	} else {
+		cout << "ID: " << newSpot->getVehicleID() << endl;
+	}
 
 	temp.at(0) = newSpot;
 
 	lane.assign(size, nullptr);
 
 	lane = temp;
+
+	cout << "printing adjusted lane: " << endl;
+	for (int i = 0; i < size; i++){
+		if (lane.at(i) == nullptr) {
+			cout << "NULL BLOCK" << endl;
+		} else {
+			cout << lane.at(i)-> getVehicleID() << endl;
+		}
+	}
 
         return exitingVehicle;
 }
@@ -88,7 +113,7 @@ VehicleBase* Lane::greenMovement(VehicleBase* newSpot){
 void Lane::redMovement(VehicleBase* newSpot){
         for (int i = size - 1; i > 0; i--){
                 if (lane.at(i) == nullptr){ //If the spot ahead is empty, move the *vehicle forward
-                        lane.at(i) = lane.at(i-1);
+                        lane.at(i) = &(*lane.at(i-1));
                         lane.at(i-1) = nullptr;
                 }
         }

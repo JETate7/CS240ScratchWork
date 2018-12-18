@@ -169,7 +169,6 @@ int main(int argc, char *argv[]){
 			cout << "here14" << endl;
 		}
 
-		vector<VehicleBase> newVs;
 		int type;
 
 		if (northInTemp.getPosition(3) == nullptr){
@@ -180,26 +179,26 @@ int main(int argc, char *argv[]){
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
                                                 VehicleBase newNorth(VehicleType::car, Direction::north);
-                                                northInTemp.setPosition(3, &newNorth);
+                                                allVehicles.push_back(newNorth);
+						northInTemp.setPosition(3, &newNorth);
                                                 northInTemp.setPosition(2, &newNorth);
-                                                newVs.push_back(std::move(newNorth));
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
                                                 VehicleBase newNorth(VehicleType::truck, Direction::north);
-                                                northInTemp.setPosition(3, &newNorth);
+                                                allVehicles.push_back(newNorth);
+						northInTemp.setPosition(3, &newNorth);
                                                 northInTemp.setPosition(2, &newNorth);
                                                 northInTemp.setPosition(1, &newNorth);
                                                 northInTemp.setPosition(0, &newNorth);
-                                                newVs.push_back(move(newNorth));
                                         }
 
                                         else {
                                                 VehicleBase newNorth(VehicleType::suv, Direction::north);
-                                                northInTemp.setPosition(3, &newNorth);
+                                                allVehicles.push_back(newNorth);
+					        northInTemp.setPosition(3, &newNorth);
                                                 northInTemp.setPosition(2, &newNorth);
                                                 northInTemp.setPosition(1, &newNorth);
-                                                newVs.push_back(move(newNorth));
                                         }
                                 }
                         }
@@ -213,26 +212,26 @@ int main(int argc, char *argv[]){
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
                                                 VehicleBase newSouth(VehicleType::car, Direction::south);
-                                                southInTemp.setPosition(3, &newSouth);
+                                        	allVehicles.push_back(newSouth);
+					        southInTemp.setPosition(3, &newSouth);
                                                 southInTemp.setPosition(2, &newSouth);
-                                                newVs.push_back(newSouth);
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
                                                 VehicleBase newSouth(VehicleType::truck, Direction::south);
+                                                allVehicles.push_back(newSouth);
                                                 southInTemp.setPosition(3, &newSouth);
                                                 southInTemp.setPosition(2, &newSouth);
                                                 southInTemp.setPosition(1, &newSouth);
                                                 southInTemp.setPosition(0, &newSouth);
-                                                newVs.push_back(newSouth);
                                         }
 
                                         else {
                                                 VehicleBase newSouth(VehicleType::suv, Direction::south);
+                                                allVehicles.push_back(newSouth);
                                                 southInTemp.setPosition(3, &newSouth);
                                                 southInTemp.setPosition(2, &newSouth);
                                                 southInTemp.setPosition(1, &newSouth);
-                                                newVs.push_back(newSouth);
                                         }
                                 }
                         }
@@ -245,26 +244,26 @@ int main(int argc, char *argv[]){
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
                                                 VehicleBase newEast(VehicleType::car, Direction::east);
+                                                allVehicles.push_back(newEast);
                                                 eastInTemp.setPosition(3, &newEast);
                                                 eastInTemp.setPosition(2, &newEast);
-                                                newVs.push_back(newEast);
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
                                                 VehicleBase newEast(VehicleType::truck, Direction::east);
-                                                eastInTemp.setPosition(3, &newEast);
+                                        	allVehicles.push_back(newEast);
+					        eastInTemp.setPosition(3, &newEast);
                                                 eastInTemp.setPosition(2, &newEast);
                                                 eastInTemp.setPosition(1, &newEast);
                                                 eastInTemp.setPosition(0, &newEast);
-                                                newVs.push_back(newEast);
                                         }
 
                                         else {
                                                 VehicleBase newEast(VehicleType::suv, Direction::east);
-                                                eastInTemp.setPosition(3, &newEast);
+                                        	allVehicles.push_back(newEast);
+					        eastInTemp.setPosition(3, &newEast);
                                                 eastInTemp.setPosition(2, &newEast);
                                                 eastInTemp.setPosition(1, &newEast);
-                                                newVs.push_back(newEast);
                                         }
                                 }
                         }
@@ -277,36 +276,33 @@ int main(int argc, char *argv[]){
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
                                                 VehicleBase newWest(VehicleType::car, Direction::west);
+						allVehicles.push_back(newWest);
                                                 westInTemp.setPosition(3, &newWest);
                                                 westInTemp.setPosition(2, &newWest);
-                                                newVs.push_back(newWest);
 
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
                                                 VehicleBase newWest(VehicleType::truck, Direction::west);
+						allVehicles.push_back(newWest);
                                                 westInTemp.setPosition(3, &newWest);
                                                 westInTemp.setPosition(2, &newWest);
                                                 westInTemp.setPosition(1, &newWest);
                                                 westInTemp.setPosition(0, &newWest);
-                                                newVs.push_back(newWest);
 
                                         }
 
                                         else {
                                                 VehicleBase newWest(VehicleType::suv, Direction::west);
+						allVehicles.push_back(newWest);
                                                 westInTemp.setPosition(3, &newWest);
                                                 westInTemp.setPosition(2, &newWest);
                                                 westInTemp.setPosition(1, &newWest);
-                                                newVs.push_back(newWest);
 
                                         }
                                 }
                         }
 
-
-		allVehicles.reserve(allVehicles.size() + newVs.size());
-		allVehicles.insert(allVehicles.end(), newVs.begin(), newVs.end());
 
 		for (int i = 0; i < allVehicles.size(); i++){
 			cout << "Vehicle index " << i << " stores val " << allVehicles.at(i).getVehicleID() << endl;
@@ -338,18 +334,12 @@ int main(int argc, char *argv[]){
                 }
 
 		anim.setVehiclesNorthbound(northbound);
-		cout << "here19" << endl;
 		anim.setVehiclesWestbound(westbound);
-		cout << "here20" << endl;
 		anim.setVehiclesSouthbound(southbound);
-		cout << "here21" << endl;
 		anim.setVehiclesEastbound(eastbound);
-		cout << "here22" << endl;
 
 		anim.draw(i);
-		cout << "here23" << endl;
 		std::cin.get(dummy);
-		cout << "here24" << endl;
 
 		northbound.assign(properties[1]*2+2, nullptr);
                 southbound.assign(properties[1]*2+2, nullptr);

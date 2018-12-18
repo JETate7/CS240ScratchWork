@@ -19,10 +19,10 @@ class Intersection
 		Lane* eastOut;
 		Lane* westIn;
 		Lane* westOut;
-		VehicleBase* NE;
-		VehicleBase* NW;
-		VehicleBase* SE;
-		VehicleBase* SW;
+		VehicleBase* NE = nullptr;
+		VehicleBase* NW = nullptr;
+		VehicleBase* SE = nullptr;
+		VehicleBase* SW = nullptr;
 		double pNewNorthbound;
 		double pNewSouthbound;
 		double pNewEastbound;
