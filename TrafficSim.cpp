@@ -178,27 +178,27 @@ int main(int argc, char *argv[]){
                                         //if it does, determine the type and set the spaces appropriately
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
-                                                VehicleBase newNorth(VehicleType::car, Direction::north);
-                                                allVehicles.push_back(newNorth);
-						northInTemp.setPosition(3, &newNorth);
-                                                northInTemp.setPosition(2, &newNorth);
+                                                VehicleBase* newNorth = new VehicleBase(VehicleType::car, Direction::north);
+                                                allVehicles.push_back(*newNorth);
+						northInTemp.setPosition(3, newNorth);
+                                                northInTemp.setPosition(2, newNorth);
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
-                                                VehicleBase newNorth(VehicleType::truck, Direction::north);
-                                                allVehicles.push_back(newNorth);
-						northInTemp.setPosition(3, &newNorth);
-                                                northInTemp.setPosition(2, &newNorth);
-                                                northInTemp.setPosition(1, &newNorth);
-                                                northInTemp.setPosition(0, &newNorth);
+                                                VehicleBase* newNorth = new VehicleBase(VehicleType::truck, Direction::north);
+                                                allVehicles.push_back(*newNorth);
+						northInTemp.setPosition(3, newNorth);
+                                                northInTemp.setPosition(2, newNorth);
+                                                northInTemp.setPosition(1, newNorth);
+                                                northInTemp.setPosition(0, newNorth);
                                         }
 
                                         else {
-                                                VehicleBase newNorth(VehicleType::suv, Direction::north);
-                                                allVehicles.push_back(newNorth);
-					        northInTemp.setPosition(3, &newNorth);
-                                                northInTemp.setPosition(2, &newNorth);
-                                                northInTemp.setPosition(1, &newNorth);
+                                                VehicleBase* newNorth = new VehicleBase(VehicleType::suv, Direction::north);
+                                                allVehicles.push_back(*newNorth);
+					        northInTemp.setPosition(3, newNorth);
+                                                northInTemp.setPosition(2, newNorth);
+                                                northInTemp.setPosition(1, newNorth);
                                         }
                                 }
                         }
@@ -211,27 +211,27 @@ int main(int argc, char *argv[]){
                                         //if it does, determine the type and set the spaces appropriately
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
-                                                VehicleBase newSouth(VehicleType::car, Direction::south);
-                                        	allVehicles.push_back(newSouth);
-					        southInTemp.setPosition(3, &newSouth);
-                                                southInTemp.setPosition(2, &newSouth);
+                                                VehicleBase* newSouth = new VehicleBase(VehicleType::car, Direction::south);
+                                        	allVehicles.push_back(*newSouth);
+					        southInTemp.setPosition(3, newSouth);
+                                                southInTemp.setPosition(2, newSouth);
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
-                                                VehicleBase newSouth(VehicleType::truck, Direction::south);
-                                                allVehicles.push_back(newSouth);
-                                                southInTemp.setPosition(3, &newSouth);
-                                                southInTemp.setPosition(2, &newSouth);
-                                                southInTemp.setPosition(1, &newSouth);
-                                                southInTemp.setPosition(0, &newSouth);
+                                                VehicleBase* newSouth = new VehicleBase(VehicleType::truck, Direction::south);
+                                                allVehicles.push_back(*newSouth);
+                                                southInTemp.setPosition(3, newSouth);
+                                                southInTemp.setPosition(2, newSouth);
+                                                southInTemp.setPosition(1, newSouth);
+                                                southInTemp.setPosition(0, newSouth);
                                         }
 
                                         else {
-                                                VehicleBase newSouth(VehicleType::suv, Direction::south);
-                                                allVehicles.push_back(newSouth);
-                                                southInTemp.setPosition(3, &newSouth);
-                                                southInTemp.setPosition(2, &newSouth);
-                                                southInTemp.setPosition(1, &newSouth);
+                                                VehicleBase* newSouth = new VehicleBase(VehicleType::suv, Direction::south);
+                                                allVehicles.push_back(*newSouth);
+                                                southInTemp.setPosition(3, newSouth);
+                                                southInTemp.setPosition(2, newSouth);
+                                                southInTemp.setPosition(1, newSouth);
                                         }
                                 }
                         }
@@ -243,27 +243,27 @@ int main(int argc, char *argv[]){
                                         //if it does, determine the type and set the spaces appropriately
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
-                                                VehicleBase newEast(VehicleType::car, Direction::east);
-                                                allVehicles.push_back(newEast);
-                                                eastInTemp.setPosition(3, &newEast);
-                                                eastInTemp.setPosition(2, &newEast);
+                                                VehicleBase* newEast = new VehicleBase(VehicleType::car, Direction::east);
+                                                allVehicles.push_back(*newEast);
+                                                eastInTemp.setPosition(3, newEast);
+                                                eastInTemp.setPosition(2, newEast);
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
-                                                VehicleBase newEast(VehicleType::truck, Direction::east);
-                                        	allVehicles.push_back(newEast);
-					        eastInTemp.setPosition(3, &newEast);
-                                                eastInTemp.setPosition(2, &newEast);
-                                                eastInTemp.setPosition(1, &newEast);
-                                                eastInTemp.setPosition(0, &newEast);
+                                                VehicleBase* newEast = new VehicleBase(VehicleType::truck, Direction::east);
+                                        	allVehicles.push_back(*newEast);
+					        eastInTemp.setPosition(3, newEast);
+                                                eastInTemp.setPosition(2, newEast);
+                                                eastInTemp.setPosition(1, newEast);
+                                                eastInTemp.setPosition(0, newEast);
                                         }
 
                                         else {
-                                                VehicleBase newEast(VehicleType::suv, Direction::east);
-                                        	allVehicles.push_back(newEast);
-					        eastInTemp.setPosition(3, &newEast);
-                                                eastInTemp.setPosition(2, &newEast);
-                                                eastInTemp.setPosition(1, &newEast);
+                                                VehicleBase* newEast = new VehicleBase(VehicleType::suv, Direction::east);
+                                        	allVehicles.push_back(*newEast);
+					        eastInTemp.setPosition(3, newEast);
+                                                eastInTemp.setPosition(2, newEast);
+                                                eastInTemp.setPosition(1, newEast);
                                         }
                                 }
                         }
@@ -275,29 +275,29 @@ int main(int argc, char *argv[]){
                                         //if it does, determine the type and set the spaces appropriately
                                         type = rand()%100;
                                         if (type <= properties[10]*100){
-                                                VehicleBase newWest(VehicleType::car, Direction::west);
-						allVehicles.push_back(newWest);
-                                                westInTemp.setPosition(3, &newWest);
-                                                westInTemp.setPosition(2, &newWest);
+                                                VehicleBase* newWest = new VehicleBase(VehicleType::car, Direction::west);
+						allVehicles.push_back(*newWest);
+                                                westInTemp.setPosition(3, newWest);
+                                                westInTemp.setPosition(2, newWest);
 
                                         }
 
                                         else if (type <= (1 - properties[11])*100){
-                                                VehicleBase newWest(VehicleType::truck, Direction::west);
-						allVehicles.push_back(newWest);
-                                                westInTemp.setPosition(3, &newWest);
-                                                westInTemp.setPosition(2, &newWest);
-                                                westInTemp.setPosition(1, &newWest);
-                                                westInTemp.setPosition(0, &newWest);
+                                                VehicleBase* newWest = new VehicleBase(VehicleType::truck, Direction::west);
+						allVehicles.push_back(*newWest);
+                                                westInTemp.setPosition(3, newWest);
+                                                westInTemp.setPosition(2, newWest);
+                                                westInTemp.setPosition(1, newWest);
+                                                westInTemp.setPosition(0, newWest);
 
                                         }
 
                                         else {
-                                                VehicleBase newWest(VehicleType::suv, Direction::west);
-						allVehicles.push_back(newWest);
-                                                westInTemp.setPosition(3, &newWest);
-                                                westInTemp.setPosition(2, &newWest);
-                                                westInTemp.setPosition(1, &newWest);
+                                                VehicleBase* newWest = new VehicleBase(VehicleType::suv, Direction::west);
+						allVehicles.push_back(*newWest);
+                                                westInTemp.setPosition(3, newWest);
+                                                westInTemp.setPosition(2, newWest);
+                                                westInTemp.setPosition(1, newWest);
 
                                         }
                                 }
