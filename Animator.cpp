@@ -329,7 +329,7 @@ void Animator::drawWestbound()
     // (drawing in reverse order of the vector)
     for (int s = 0; s < numSectionsBefore; s++)
     {
-        int section = s;
+        int section = eastToWest.size() - s - 1;
         if (eastToWest[section] == nullptr)
             std::cout << Animator::EMPTY_SECTION << "|";
         else

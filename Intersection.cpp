@@ -33,24 +33,6 @@ using namespace std;
 			int sectionsBeforeIntersection = properties[1];
 			int inLaneSize = sectionsBeforeIntersection + 3;
 
-			//create lanes
-		/*	Lane northInTemp(inLaneSize);
-			northIn = &northInTemp;
-			Lane northOutTemp(sectionsBeforeIntersection);
-			northOut = &northOutTemp;
-			Lane southInTemp(inLaneSize);
-			southIn = &southInTemp;
-                        Lane southOutTemp(sectionsBeforeIntersection);
-			southOut = &southOutTemp;
-			Lane eastInTemp(inLaneSize);
-			eastIn = &eastInTemp;
-			Lane eastOutTemp(sectionsBeforeIntersection);
-			eastOut = &eastOutTemp;
-			Lane westInTemp(inLaneSize);
-			westIn = &westInTemp;
-                        Lane westOutTemp(sectionsBeforeIntersection);
-			westOut = &westOutTemp;
-		*/
 			northIn = NI;
 			northOut = NO;
 			eastIn = EI;
@@ -59,131 +41,9 @@ using namespace std;
 			southOut = SO;
 			westIn = WI;
 			westOut = WO;	
-			cout << "In constructor: " << endl;
-			//cout << "NorthInTemp size: " << northInTemp.getSize() << endl;
-			cout << "NorthIn size: " << northIn->getSize() << endl;
 		}
 
 		Intersection::~Intersection(){}
-/*
-		void Intersection::MoveTrafficNS(){
-
-			int type;
-
-
-
-			//check if there is a vehicle in the S/W or N/E spots.
-			if (NE != nullptr){
-				//Check to see if the vehicles have already progressed to N/W or the EO lane
-				//If they have already progressed, continue them in either their straight or right turn pattern.
-				if (NW == NE){
-					northOut->greenMovement(NW);
-					NW = NE;
-					NE = northIn->greenMovement(nullptr);
-					eastOut->greenMovement(nullptr);
-				}
-				else if (NE == eastOut->getPosition(0)){
-					eastOut->greenMovement(NE);
-					NE = northIn->greenMovement(nullptr);
-					northOut->greenMovement(NW);
-					NW = nullptr;
-				}
-				//If they haven't, determine using random generator if they are turning right or going straight
-				else {
-					VehicleType next = NE->getVehicleType();
-					bool turningRight;
-					if (next == VehicleType::truck){
-						turningRight = randomGen(pRtTurnTruck);
-					}
-					if (next == VehicleType::car){
-						turningRight = randomGen(pRtTurnCar);
-					}
-					if (next == VehicleType::suv){
-						turningRight = randomGen(pRtTurnSUV);
-					}
-					//progress according to whether or not they turn right
-					if (turningRight){
-						eastOut->greenMovement(NE);
-						NE = northIn->greenMovement(nullptr);
-						northOut->greenMovement(nullptr);
-					}
-					else {
-						northOut->greenMovement(NW);
-						NW = NE;
-						NE = northIn->greenMovement(nullptr);
-						eastOut->greenMovement(nullptr);
-					}
-				}
-
-			}
-			//Otherwise, just progress all traffic in a straight line
-			else{
-				northOut->greenMovement(NW);
-				NW = NE;
-				NE = northIn->greenMovement(nullptr);
-				eastOut->greenMovement(nullptr);
-			}
-
-			if (SW != nullptr){
-				//Check to see if the vehicles have already progressed to S/E or the WO lane
-				//If they have already progressed, continue them in either their straight or right turn pattern.
-				if (SW == SE){
-					southOut->greenMovement(SE);
-					SE = SW;
-					SW = southIn->greenMovement(nullptr);
-					westOut->greenMovement(nullptr);
-				}
-				else if (SW == eastOut->getPosition(0)){
-					westOut->greenMovement(SW);
-					SW = southIn->greenMovement(nullptr);
-					southOut->greenMovement(SE);
-					SE = nullptr;
-				}
-				//If they haven't, determine using random generator if they are turning or going straight
-				else {
-					VehicleType next = SW->getVehicleType();
-					bool turningRight;
-					if (next == VehicleType::truck){
-						turningRight = randomGen(pRtTurnTruck);
-					}
-					if (next == VehicleType::car){
-						turningRight = randomGen(pRtTurnCar);
-					}
-					if (next == VehicleType::suv){
-						turningRight = randomGen(pRtTurnSUV);
-					}
-					//progress according to whether or not they turn right
-					if (turningRight){
-						westOut->greenMovement(SW);
-						SW = southIn->greenMovement(nullptr);
-						//to ensure all lanes that could be moved are moved
-						southOut->greenMovement(nullptr);
-					}
-					else {
-						southOut->greenMovement(SE);
-						SE = SW;
-						SW = southIn->greenMovement(nullptr);
-						westOut->greenMovement(nullptr);
-					}
-				}
-			}
-			//Otherwise, just progress all traffic in a straight line
-			else {
-				southOut->greenMovement(SE);
-				SE = SW;
-				SW = southIn->greenMovement(nullptr);
-			}
-
-			//progress the remaining blocks and lanes; only eastIn->and westIn
-			westIn->redMovement(nullptr);
-			eastIn->redMovement(nullptr);
-
-
-			//check to add vehicles to all incoming lanes and add them if it's possible
-			addEndVehicles();
-		}
-
-		void Intersection::MoveTrafficEW(){}*/
 
 		void Intersection::YellowTickNS(int timeRemaining){
 		//For the north lane:

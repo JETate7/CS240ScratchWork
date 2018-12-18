@@ -77,8 +77,6 @@ int main(int argc, char *argv[]){
                 }
 
   Intersection in(properties, &northInTemp, &northOutTemp, &eastInTemp, &eastOutTemp, &southInTemp, &southOutTemp, &westInTemp, &westOutTemp);
-  //cout << in.properties[10] << endl;
-  cout << "External check of northIn: " << in.northIn->getSize() << endl;
 
   //Generate clock-tick and progress simulation
 	//read in required fields for timing
@@ -172,7 +170,6 @@ int main(int argc, char *argv[]){
 		int type;
 
 		if (northInTemp.getPosition(3) == nullptr){
-                         cout << "NorthIn has room for a new vehicle." << endl;
                                 //if it can, check if it does
                                 if (in.randomGen(properties[6])){
                                         //if it does, determine the type and set the spaces appropriately
@@ -308,13 +305,24 @@ int main(int argc, char *argv[]){
 			cout << "Vehicle index " << i << " stores val " << allVehicles.at(i).getVehicleID() << endl;
 		}
 
-		cout << "Attempting to print northIn: " << endl;
+		cout << "Attempting to print westIn: " << endl;
 		for (int k = 0; k < inLaneSize; k++){
-			if (northInTemp.getPosition(k) == nullptr){
+			if (westInTemp.getPosition(k) == nullptr){
 				cout << "Null block" << endl;
 			}
 			else {
-				cout << "Stores vehicle " << northInTemp.getPosition(k)->getVehicleID() << endl;
+				cout << "Stores vehicle " << westInTemp.getPosition(k)->getVehicleID() << endl;
+			}
+		}
+
+		cout << "Attempting to print westOut: " << endl;
+		for (int k = 0; k < inLaneSize - 3; k++){
+			if (westOutTemp.getPosition(k) == nullptr){
+				cout << "Null block" << endl;
+			}
+
+			else {
+				cout << "Stores vehicle " << westOutTemp.getPosition(k)->getVehicleID() << endl;
 			}
 		}
 
@@ -323,13 +331,13 @@ int main(int argc, char *argv[]){
 		southbound = in.getSouthbound();
 		northbound = in.getNorthbound();
 
-		cout << "Attempting to print northbound: " << endl;
+		cout << "Attempting to print westbound: " << endl;
                 for (int k = 0; k < northbound.size(); k++){
-                        if (northbound.at(k) == nullptr){
+                        if (westbound.at(k) == nullptr){
                                 cout << "Null block" << endl;
                         }
                         else {
-                                cout << "Stores vehicle " << northbound.at(k)->getVehicleID() << endl;
+                                cout << "Stores vehicle " << westbound.at(k)->getVehicleID() << endl;
                         }
                 }
 
